@@ -18,3 +18,6 @@ ADD https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/${SY
 # Add non root user with sudo privileges
 # password is password encrypted with `mkpasswd password`
 RUN useradd --groups sudo --create-home --password BLkvn6sbzJ1BE user
+
+# Setup passwordless sudo
+RUN echo "user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/1-user
