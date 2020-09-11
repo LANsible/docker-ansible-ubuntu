@@ -1,4 +1,6 @@
-FROM ubuntu:20.04
+ARG ARCHITECTURE
+
+FROM multiarch/ubuntu-core:${ARCHITECTURE}-focal
 
 ENV SYSTEMCL_VERSION=v1.5.4260
 
@@ -10,7 +12,7 @@ RUN apt-get update && \
       bash \
       ca-certificates
 
-RUN test -d /run/systemd/system || mkdir /run/systemd/system
+RUN test -d /run/systemd/system || mkdir -p /run/systemd/system
 ADD https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/${SYSTEMCL_VERSION}/files/docker/systemctl3.py /usr/bin/systemctl
 
 # Add non root user with sudo privileges
