@@ -2,7 +2,7 @@ ARG ARCHITECTURE
 
 FROM multiarch/ubuntu-core:${ARCHITECTURE}-focal
 
-ENV SYSTEMCL_VERSION=v1.5.4260
+ENV SYSTEMCL_VERSION=v1.5.4505
 
 # Install steps from here: https://github.com/gdraheim/docker-systemctl-replacement/tree/v1.5.4260#service-manager
 # iproute2 is needed for IP information in setup module:
